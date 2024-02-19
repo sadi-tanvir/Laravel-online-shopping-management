@@ -9,10 +9,10 @@
             <div class="w-full flex">
                 <div class=" text-white text-sm">
                     <span class="text-gray-400 font-semibold">Role:</span>
-                    <span class="text-emerald-400 font-bold uppercase">{{ Auth::user()->role }}</span>
+                    <span class="text-green-400 font-bold uppercase">{{ Auth::user()->role }}</span>
                 </div>
 
-                <a href="{{ route('profile.edit') }}" class="text-emerald-400 ml-auto">
+                <a href="{{ route('profile.edit') }}" class="text-green-400 ml-auto">
                     <svg class="text-white bg-white p-2 rounded-full w-8 h-8" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512">
                         <path
@@ -34,7 +34,7 @@
 
             <div class="mt-8 text-center">
                 <h2 class="text-white font-bold text-2xl tracking-wide capitalize">{{ Auth::user()->name }}</h2>
-                <p class="text-emerald-400 font-semibold mt-2.5">
+                <p class="text-green-400 font-semibold mt-2.5">
                     {{ Auth::user()->email }}
                 </p>
                 @if (Auth::user()->phone)

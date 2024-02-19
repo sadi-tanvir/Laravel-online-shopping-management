@@ -9,10 +9,10 @@
                 <div class="w-full flex justify-between items-center">
                     <div class=" text-white text-sm">
                         <span class="text-gray-400 font-semibold">Role:</span>
-                        <span class="text-emerald-400 font-bold uppercase">{{ Auth::user()->role }}</span>
+                        <span class="text-green-400 font-bold uppercase">{{ Auth::user()->role }}</span>
                     </div>
 
-                    <a href="{{ route('profile.edit') }}" class="text-emerald-400">
+                    <a href="{{ route('profile.edit') }}" class="text-green-400">
                         <svg class="text-white bg-white p-2 rounded-full w-8 h-8" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512">
                             <path
@@ -31,7 +31,7 @@
                 </div>
                 <div class="mt-4 text-center">
                     <h2 class="text-white font-bold text-2xl tracking-wide">{{ Auth::user()->name }}</h2>
-                    <p class="text-emerald-400 font-semibold mt-2">
+                    <p class="text-green-400 font-semibold mt-2">
                         {{ Auth::user()->email }}
                     </p>
                     @if (Auth::user()->phone)
@@ -47,20 +47,16 @@
 
 
             <ul class="flex flex-col justify-center items-center my-10 w-full space-y-5 px-2">
-                {{-- <a href="{{ route('profile.edit') }}"
-                    class="flex justify-center items-center rounded-xl text-white w-full py-2 hover:scale-105 duration-300">
-                    <li>Admin Profile</li>
-                </a> --}}
-                <a href="{{ route('admin.dashboard.allUsers') }}"
-                    class="flex justify-center items-center text-white rounded-xl text-whit w-full  py-2 hover:scale-105 duration-300 {{ request()->routeIs('admin.dashboard.allUsers') ? 'border shadow-lg' : '' }}">
+                <a href="{{ route('admin.dashboard.users.display') }}"
+                    class="flex justify-center items-center text-white rounded-xl text-whit w-full  py-2 hover:scale-105 duration-300 {{ request()->routeIs('admin.dashboard.users.display') ? 'border shadow-lg' : '' }}">
                     <li>All Users</li>
                 </a>
-                <a href="{{ route('admin.dashboard.allProducts') }}"
-                    class="flex justify-center items-center  rounded-xl text-white w-full py-2 hover:scale-105 duration-300 {{ request()->routeIs('admin.dashboard.allProducts') ? 'border shadow-lg' : '' }}">
+                <a href="{{ route('admin.dashboard.products.display') }}"
+                    class="flex justify-center items-center  rounded-xl text-white w-full py-2 hover:scale-105 duration-300 {{ request()->routeIs('admin.dashboard.products.display') ? 'border shadow-lg' : '' }}">
                     <li>All Products</li>
                 </a>
-                <a href="{{route("admin.dashboard.messages")}}"
-                    class="flex justify-center items-center  rounded-xl text-white w-full py-2 hover:scale-105 duration-300 {{ request()->routeIs('admin.dashboard.messages') ? 'border shadow-lg' : '' }}">
+                <a href="{{ route('admin.dashboard.messages.display') }}"
+                    class="flex justify-center items-center  rounded-xl text-white w-full py-2 hover:scale-105 duration-300 {{ request()->routeIs('admin.dashboard.messages.display') ? 'border shadow-lg' : '' }}">
                     <li>All Messages</li>
                 </a>
 
@@ -70,10 +66,16 @@
             </div>
 
             <div class="w-full mb-5 px-2">
-                <a href="#"
-                    class="flex justify-center items-center rounded-lg text-white border shadow-lg py-2 hover:scale-105 duration-300 bg-red-500 w-full">
-                    Log Out
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <a class="flex justify-center items-center rounded-lg text-white border shadow-lg py-2 hover:scale-105 duration-300 bg-red-500 w-full"
+                        href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                        Log Out
+                    </a>
+                </form>
             </div>
         </div>
 

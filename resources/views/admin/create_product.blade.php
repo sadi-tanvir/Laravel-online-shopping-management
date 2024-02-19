@@ -5,7 +5,7 @@
     <div class="flex flex-col justify-center items-center my-5">
         <div class="w-4/6">
             <h1 class="text-4xl text-gray-700 font-bold mb-5">Create New Product</h1>
-            <form method="POST" action="/admin/dashboard/storeProduct" enctype="multipart/form-data" class="mx-auto">
+            <form method="POST" action="/admin/dashboard/products/store" enctype="multipart/form-data" class="mx-auto">
                 @csrf
                 <div class="mb-5">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product

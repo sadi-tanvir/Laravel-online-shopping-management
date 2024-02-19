@@ -35,7 +35,7 @@
                         </td>
                         <td class="px-6 py-4">
                             <a class="bg-green-500 px-4 py-1 rounded-lg my-2 text-white"
-                                href="{{ route('admin.dashboard.user.details', $user->id) }}">
+                                href="{{ route('admin.dashboard.users.details', $user->id) }}">
                                 Details
                             </a>
                         </td>
@@ -45,7 +45,7 @@
                             </a>
                         </td> --}}
                         <td class="px-6 py-4">
-                            <form method="POST" action="/admin/dashboard/user/{{ $user->id }}/delete">
+                            <form method="POST" action="/admin/dashboard/users/{{ $user->id }}/delete">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="px-4 py-1 bg-red-500 text-white rounded-lg">Delete</button>

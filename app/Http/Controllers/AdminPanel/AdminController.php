@@ -11,44 +11,51 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function index()
+    // Display all registered users
+    public function display_users()
     {
         $users = User::whereNot('id', Auth::user()->id)->get();
         return view('admin.display_users', ["users" => $users]);
     }
 
-    public function userDelete($id)
+    // Delete a user
+    public function user_delete($id)
     {
         $user = User::where('id', $id)->first();
         $user->delete();
         return back()->withSuccess("User Deleted Successfully!");
     }
 
-    public function userDetails($id)
+    // View user details
+    public function user_details($id)
     {
         $user = User::where('id', $id)->first();
         return view("admin.user_details", ["user" => $user]);
     }
 
-    public function productsView()
+    // Display all the existing products
+    public function products_display()
     {
-        $products = Product::latest()->get();
+        $products = Product::latest()->paginate(5);
         // dd($products);
         return view('admin.display_products', ["data" => $products]);
     }
 
-    public function productsDetailsView($id)
+    // View product details
+    public function product_details($id)
     {
         $product = Product::where('id', $id)->first();
         return view("admin.product_details", ["product" => $product]);
     }
 
-    public function createProduct()
+    // Display product creation form
+    public function create_product()
     {
         return view("admin.create_product");
     }
 
-    public function storeProduct(Request $request)
+    // Store product on the database
+    public function store_product(Request $request)
     {
         // upload image
         $request->validate([
@@ -72,7 +79,8 @@ class AdminController extends Controller
         return back()->withSuccess("Product Created Successfully!");
     }
 
-    public function deleteProduct($id)
+    // Delete a product
+    public function delete_product($id)
     {
         $product = Product::findOrFail($id);
         $imagePath = public_path("products/") . $product->image;
@@ -83,17 +91,16 @@ class AdminController extends Controller
         return back()->withSuccess("Product Deleted Successfully!");
     }
 
-
-    public function edit($id)
+    // Display product edit form
+    public function edit_product($id)
     {
         $product = Product::where('id', $id)->first();
         return view("admin.edit_product", ['product' => $product]);
     }
 
-
-    public function updateProduct(Request $request, $id)
+    // Update the product
+    public function update_product(Request $request, $id)
     {
-
         $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -117,16 +124,19 @@ class AdminController extends Controller
     }
 
 
-    public function viewMessages()
+    // Display all the products
+    public function display_messages()
     {
         $messages = Contact::get();
         return view("admin.messages", ["messages" => $messages]);
     }
+    
 
-    public function deleteMessage($id)
+    // Delete a message
+    public function delete_message($id)
     {
         $message = Contact::where('id', $id)->first();
         $message->delete();
         return back()->withSuccess('Message Deleted!');
     }
-}
+};

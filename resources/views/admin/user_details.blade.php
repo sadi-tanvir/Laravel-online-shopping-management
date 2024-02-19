@@ -29,7 +29,7 @@
                 Role: {{ $user->role }}
             </p>
         </div>
-        <a href="{{ route('admin.dashboard.allUsers') }}"
+        <a href="{{ route('admin.dashboard.users.display') }}"
             class="flex justify-center items-center text-white rounded-xl text-whit w-full  py-2 hover:scale-105 duration-300 bg-green-500 mt-7">
             back to users list
         </a>

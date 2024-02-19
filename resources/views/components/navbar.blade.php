@@ -43,8 +43,8 @@
                     @if (Auth::check())
                         @if (Auth::user()->role === 'admin')
                             <li>
-                                <a href="{{ route('admin.dashboard.allUsers') }}"
-                                    class="block py-2 px-3 text-gray-800 rounded md:bg-transparent {{ request()->routeIs('admin.dashboard.allUsers') ? 'text-gray-500 border shadow px-5' : '' }}"
+                                <a href="{{ route('admin.dashboard.users.display') }}"
+                                    class="block py-2 px-3 text-gray-800 rounded md:bg-transparent {{ request()->routeIs('admin.dashboard.users.display') ? 'text-gray-500 border shadow px-5' : '' }}"
                                     aria-current="page">Admin
                                     Dashboard</a>
                             </li>

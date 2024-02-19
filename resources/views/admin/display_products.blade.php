@@ -4,7 +4,7 @@
 @section('content-section')
     <div class="flex justify-between items-center my-10">
         <h1 class="text-5xl text-gray-700 font-bold">product's Lists</h1>
-        <a class="bg-green-500 px-4 py-1 rounded-lg my-2 text-white" href="{{ route('admin.dashboard.createProduct') }}">
+        <a class="bg-green-500 px-4 py-1 rounded-lg my-2 text-white" href="{{ route('admin.dashboard.products.create') }}">
             Create New Product
         </a>
     </div>
@@ -29,12 +29,11 @@
                         <td class="px-6 py-4">{{ $product->name }}</td>
                         <td class="px-6 py-4">{{ $product->description }}</td>
                         <td class="px-6 py-4">
-                            <img src="/products/{{ $product->image }}" class="w-14 h-14 rounded-lg border-2"
-                                alt="">
+                            <img src="/products/{{ $product->image }}" class="w-14 h-14 rounded-lg border-2" alt="">
                         </td>
                         <td class="px-6 py-4">
                             <a class="bg-green-500 px-4 py-1 rounded-lg my-2 text-white"
-                                href="{{ route('admin.dashboard.productDetails', $product->id) }}">
+                                href="{{ route('admin.dashboard.products.details', $product->id) }}">
                                 Details
                             </a>
                         </td>
@@ -53,8 +52,10 @@
                         </td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
+        <div class="px-10 my-10">
+            {{ $data->links('') }}
+        </div>
     </div>
 @endsection

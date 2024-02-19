@@ -11,8 +11,8 @@
 
             <!-- form -->
             <div class="md:w-1/2 px-8 md:px-16">
-                <h2 class="font-bold text-2xl text-[#002D74]">Register</h2>
-                <p class="text-xs mt-4 text-[#002D74]">If you are not registered, then you can easily register</p>
+                <h2 class="font-bold text-2xl text-green-700">Register</h2>
+                <p class="text-xs mt-4 text-green-700">If you are not registered, then you can easily register</p>
 
                 <form method="POST" action="{{ route('register') }}" class="flex flex-col gap-4">
                     @csrf
@@ -50,12 +50,12 @@
                         @endif
                     </div>
 
-                    <button type="submit" class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">
+                    <button type="submit" class="bg-green-700 rounded-xl text-white py-2 hover:scale-105 duration-300">
                         Register
                     </button>
                 </form>
 
-                <div class="mt-3 text-xs flex justify-between items-center text-[#002D74]">
+                <div class="mt-3 text-xs flex justify-between items-center text-green-700">
                     <p>Already have an account?</p>
                     <a href="{{ route('login') }}"
                         class="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300">login</a>

@@ -12,7 +12,7 @@
                     <p class="mt-2 text-2xl text-gray-800 font-bold">{{ $product->price }}৳</p>
                     <div class="flex justify-center lg:justify-start mt-6">
                         <a class="px-4 py-3 bg-green-500 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
-                            href="{{route("admin.dashboard.allProducts")}}">Back To Products</a>
+                            href="{{route("admin.dashboard.products.display")}}">Back To Products</a>
                        
                     </div>
                 </div>

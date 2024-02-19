@@ -6,8 +6,8 @@
         <!-- login container -->
         <div class="bg-gray-100 rounded-2xl shadow-lg w-1/2 p-5 mx-auto">
             <div class="md:w-full px-8 md:px-16 mx-auto py-10">
-                <h2 class="font-bold text-2xl text-[#002D74] text-center">Update <span
-                        class="text-emerald-400">{{ Auth::user()->role }}</span>'s profile</h2>
+                <h2 class="font-bold text-2xl text-gray-600 text-center">Update <span
+                        class="text-green-400">{{ Auth::user()->role }}</span>'s profile</h2>
                 <div class="mt-6 w-fit mx-auto ">
                     @if (Auth::user()->image)
                         <img src="/profile/{{ Auth::user()->image }}" class="rounded-full border-2 w-24 "
@@ -60,7 +60,7 @@
                     </div>
 
 
-                    <button type="submit" class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">
+                    <button type="submit" class="bg-green-700 rounded-xl text-white py-2 hover:scale-105 duration-300">
                         Update
                     </button>
                 </form>

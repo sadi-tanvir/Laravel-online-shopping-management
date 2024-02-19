@@ -20,16 +20,12 @@
                 {{ $message }}
             </h1>
             <script>
-                // Wait for the DOM to be fully loaded
                 document.addEventListener('DOMContentLoaded', function() {
-                    // Get the success message element
                     var successMessage = document.getElementById('successMessage');
-                    // Check if the success message element exists
                     if (successMessage) {
-                        // Hide the success message after 5 seconds
                         setTimeout(function() {
                             successMessage.style.display = 'none';
-                        }, 5000); // 5000 milliseconds = 5 seconds
+                        }, 5000);
                     }
                 });
             </script>
@@ -39,8 +35,7 @@
     </div>
 
 
-
-    {{-- footer --}}
+    {{-- footer section --}}
     <x-footer />
 
 </body>

@@ -35,13 +35,13 @@
                 </div>
                 <div class="my-4">
                     <textarea name="message" placeholder="Message*"
-                        class="w-full h-32 xl:h-48 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline">{{ old('message') }}</textarea>
+                        class="w-full h-32 xl:h-48 bg-gray-100 text-gray-600 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline">{{ old('message') }}</textarea>
                     {{-- @if ($errors->has('message')) --}}
                     <span class="text-red-500">{{ $errors->first('message') }}</span>
                     {{-- @endif --}}
                 </div>
                 <button
-                    class="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full xl:w-2/6 
+                    class="uppercase text-sm font-bold tracking-wide bg-green-600 text-gray-100 p-3 rounded-lg w-full xl:w-2/6 
               focus:outline-none focus:shadow-outline">
                     Send Message
                 </button>
