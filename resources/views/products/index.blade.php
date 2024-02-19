@@ -1,4 +1,4 @@
-@extends('common.masterLayout')
+@extends('layouts.app_layout')
 
 @section('middle-section')
     <h1 class="text-4xl text-gray-700 font-bold uppercase text-center mt-5">products Lists</h1>

@@ -11,7 +11,7 @@ class CommonController extends Controller
 {
     public function edit()
     {
-        return view('common.edit');
+        return view('profile.edit');
     }
 
 

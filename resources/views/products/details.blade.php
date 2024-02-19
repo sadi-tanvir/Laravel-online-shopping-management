@@ -1,4 +1,4 @@
-@extends('common.masterLayout')
+@extends('layouts.app_layout')
 @section('middle-section')
     {{-- <h1 class="text-5xl text-gray-700 font-bold">Create Products ${{ $product->id }}</h1>
     <p>name: {{ $product->name }}</p>

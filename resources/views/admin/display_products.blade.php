@@ -1,4 +1,4 @@
-@extends('admin.masterDashboardLayout')
+@extends('layouts.admin_dashboard_layout')
 
 
 @section('content-section')
@@ -45,7 +45,7 @@
                             </a>
                         </td>
                         <td class="px-6 py-4">
-                            <form method="POST" action="/admin/products/{{ $product->id }}/delete">
+                            <form method="POST" action="/admin/dashboard/products/{{ $product->id }}/delete">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="px-5 py-2 bg-red-500 text-white rounded-lg">Delete</button>
@@ -55,7 +55,6 @@
                 @endforeach
 
             </tbody>
-            {{-- {{$data->links()}} --}}
         </table>
     </div>
 @endsection

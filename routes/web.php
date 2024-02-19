@@ -36,29 +36,37 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-// custom routes
+//-------------------------- custom routes------------------------//
 // normal routes
-Route::get('/', [ProductController::class, "index"])->name('products.display');
-Route::get('/products/{id}', [ProductController::class, "details"])->name('products.details');
+Route::controller(ProductController::class)->name("products.")->group(function () {
+    Route::get('/', "index")->name('display');
+    Route::get('/products/{id}', "details")->name('details');
+});
+Route::controller(ContactController::class)->prefix("/contact")->name("contact.")->group(function () {
+    Route::get('/', "index")->name('us');
+    Route::post('/send', "createContact")->name('create');
+});
 Route::get('/about', [AboutController::class, "index"])->name('about.us');
-Route::get('/contact', [ContactController::class, "index"])->name('contact.us');
-Route::post('/contact/send', [ContactController::class, "createContact"])->name('contact.create');
+
 
 // admin routes
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get("/admin/dashboard/allUsers", [AdminController::class, 'index'])->name('admin.dashboard.allUsers');
-    Route::delete('/admin/dashboard/user/{id}/delete', [AdminController::class, "userDelete"]);
-    Route::get('/admin/dashboard/user/{id}/details', [AdminController::class, "userDetails"])->name("admin.dashboard.user.details");
-    Route::get("/admin/dashboard/allProducts", [AdminController::class, 'productsView'])->name('admin.dashboard.allProducts');
-    Route::get("/admin/dashboard/allProducts/{id}/productDetails", [AdminController::class, 'productsDetailsView'])->name('admin.dashboard.productDetails');
-    Route::get("/admin/dashboard/createProduct", [AdminController::class, 'createProduct'])->name('admin.dashboard.createProduct');
-    Route::post("/admin/dashboard/storeProduct", [AdminController::class, 'storeProduct'])->name('admin.dashboard.storeProduct');
-    Route::delete('/admin/products/{id}/delete', [AdminController::class, "destroy"]);
-    Route::get('/admin/dashboard/products/{id}/edit', [AdminController::class, "edit"])->name('admin.dashboard.products.edit');
-    Route::put('/admin/dashboard/products/{id}/update', [AdminController::class, "updateProduct"])->name('admin.dashboard.products.update');
-    Route::get('/admin/dashboard/messages', [AdminController::class, "viewMessages"])->name('admin.dashboard.messages');
-    Route::delete('/admin/dashboard/messages/{id}/delete', [AdminController::class, "deleteMessage"])->name('admin.dashboard.messages.delete');
+Route::controller(AdminController::class)->group(function () {
+    Route::middleware(['auth', 'role:admin'])->prefix('/admin/dashboard')->name('admin.dashboard.')->group(function () {
+        Route::get("/allUsers", 'index')->name('allUsers');
+        Route::delete('/user/{id}/delete', "userDelete");
+        Route::get('/user/{id}/details', "userDetails")->name("user.details");
+        Route::get("/allProducts", 'productsView')->name('allProducts');
+        Route::get("/allProducts/{id}/productDetails", 'productsDetailsView')->name('productDetails');
+        Route::get("/createProduct", 'createProduct')->name('createProduct');
+        Route::post("/storeProduct", 'storeProduct')->name('storeProduct');
+        Route::delete('/products/{id}/delete', "deleteProduct");
+        Route::get('/products/{id}/edit', "edit")->name('products.edit');
+        Route::put('/products/{id}/update', "updateProduct")->name('products.update');
+        Route::get('/messages', "viewMessages")->name('messages');
+        Route::delete('/messages/{id}/delete', "deleteMessage")->name('messages.delete');
+    });
 });
+
 
 // user routes
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -66,7 +74,9 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 });
 
 // user & admin routes
-Route::middleware('auth')->group(function () {
-    Route::get('/profile/edit', [CommonController::class, 'edit'])->name('profile.edit');
-    Route::patch('/update/profile', [CommonController::class, 'update'])->name('profile.update');
+Route::controller(CommonController::class)->group(function () {
+    Route::middleware('auth')->prefix("/profile")->name("profile.")->group(function () {
+        Route::get('/edit', 'edit')->name('edit');
+        Route::patch('/update', 'update')->name('update');
+    });
 });

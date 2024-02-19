@@ -1,4 +1,4 @@
-@extends('common.masterLayout')
+@extends('layouts.app_layout')
 
 
 @section('middle-section')
