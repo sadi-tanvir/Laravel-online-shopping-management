@@ -46,7 +46,7 @@
             </div>
 
 
-            <ul class="flex flex-col justify-center items-center my-10 w-full space-y-5 px-2">
+            <ul class="flex flex-col justify-center items-center my-10 w-full space-y-5 px-10">
                 <a href="{{ route('admin.dashboard.users.display') }}"
                     class="flex justify-center items-center text-white rounded-xl text-whit w-full  py-2 hover:scale-105 duration-300 {{ request()->routeIs('admin.dashboard.users.display') ? 'border shadow-lg' : '' }}">
                     <li>All Users</li>

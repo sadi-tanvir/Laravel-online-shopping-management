@@ -3,7 +3,7 @@
 
 @section('content-section')
     <div class="flex justify-between items-center my-10">
-        <h1 class="text-5xl text-gray-700 font-bold">product's Lists</h1>
+        <h1 class="text-5xl text-gray-700 font-bold">Product's Lists</h1>
         <a class="bg-green-500 px-4 py-1 rounded-lg my-2 text-white" href="{{ route('admin.dashboard.products.create') }}">
             Create New Product
         </a>
@@ -17,6 +17,7 @@
                     <th scope="col" class="px-6 py-3">Description</th>
                     <th scope="col" class="px-6 py-3">Image</th>
                     <th scope="col" class="px-6 py-3">Details</th>
+                    <th scope="col" class="px-6 py-3">Edit</th>
                     <th scope="col" class="px-6 py-3">Delete</th>
                 </tr>
             </thead>
@@ -59,3 +60,4 @@
         </div>
     </div>
 @endsection
+

@@ -1,7 +1,7 @@
 @extends('layouts.app_layout')
 
 @section('middle-section')
-    <h1 class="text-4xl text-gray-700 font-bold uppercase text-center mt-5">products Lists</h1>
+    <h1 class="text-4xl text-gray-700 font-bold uppercase text-center mt-5">products Lists {{$execution_time}}</h1>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10">
 
         @foreach ($data as $product)

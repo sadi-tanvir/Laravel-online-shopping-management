@@ -39,11 +39,6 @@
                                 Details
                             </a>
                         </td>
-                        {{-- <td class="px-6 py-4">
-                            <a class="bg-red-500 px-4 py-1 rounded-lg my-2 text-white" href="#">
-                                Delete
-                            </a>
-                        </td> --}}
                         <td class="px-6 py-4">
                             <form method="POST" action="/admin/dashboard/users/{{ $user->id }}/delete">
                                 @csrf
@@ -56,5 +51,10 @@
 
             </tbody>
         </table>
+
+        {{-- pagination --}}
+        <div class="px-10 my-10">
+            {{ $users->links('') }}
+        </div>
     </div>
 @endsection

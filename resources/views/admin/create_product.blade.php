@@ -49,9 +49,38 @@
                         <span class="text-red-500">{{ $errors->first('image') }}</span>
                     @endif
                 </div>
-                <button type="submit"
+                <button id="add_product" type="submit"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
             </form>
         </div>
     </div>
 @endsection
+
+@include('components.Ajax_js')
+<script>
+    $(document).ready(function(){
+        $(document).on('click', function(e){
+            e.preventDefault();
+            let name = $("#name").val();
+            let description = $("#description").val();
+            let price = $("#price").val();
+
+            console.log(name);
+            console.log(description);
+            console.log(price);
+        })
+    })
+
+   /*  document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('click', function(e) {
+            e.preventDefault();
+            let name = document.getElementById("name").value;
+            let description = document.getElementById("description").value;
+            let price = document.getElementById("price").value;
+
+            console.log(name);
+            console.log(description);
+            console.log(price);
+        });
+    }); */
+</script>
